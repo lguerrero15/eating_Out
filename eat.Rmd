@@ -73,6 +73,6 @@ fisher.test(table1)
 ```
 
 
-reject null hyp
+According to the table the p-value is 0.000002287, since the p=value is less than 0.05 we reject null hypothesis. 
 
 
