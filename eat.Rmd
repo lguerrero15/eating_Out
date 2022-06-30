@@ -39,12 +39,39 @@ explanatory variable is race, it too is a categorical variable.
 so we use cat~cat
 Inference: chi-squared and fisher exact tests
 
-## Descriptive summaries
+# Descriptive summaries
 
 ## Graphical summary
 
+```{r}
+barchartGC(~race + eatout,data=mydata)
+barchartGC(~race + eatout,data=mydata, type="percent")
+
+```
+
+According to the graph, the race "white" has the highest percentage and frequency of going out to eat with a frequency of over 800 and a percentage of over 80%. However, race "other" has the second highest percentage of going out to dinner with 70% and the lowest frequency of going out to dinner of below. Race "black" has the lowest percentage of going out to dinner with under 70% and the second highest frequency of going out to dinner with 100.
 
 
+ ## Numerical summary
+```{r}
+table1 <- xtabs(~race + eatout, data=mydata)
+rowPerc(table1)
+colPerc(table1)
+```
+this table shows that white people eatout more then the other racses 
 
+
+# Results
+
+## Inferential results
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+
+reject null hyp
 
 
